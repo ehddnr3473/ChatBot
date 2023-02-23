@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
         textField.placeholder = "Type here..."
         textField.backgroundColor = .systemPink
         textField.returnKeyType = .done
+        textField.autocorrectionType = .no
         return textField
     }()
     
@@ -27,6 +28,12 @@ final class ViewController: UIViewController {
         return tableView
     }()
     
+    private let indicatorView: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView(style: .large)
+        indicatorView.translatesAutoresizingMaskIntoConstraints = false
+        return indicatorView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +42,7 @@ final class ViewController: UIViewController {
         
         view.addSubview(queryTextField)
         view.addSubview(chatTableView)
+        view.addSubview(indicatorView)
         
         NSLayoutConstraint.activate([
             queryTextField.heightAnchor.constraint(equalToConstant: 30),
@@ -48,6 +56,11 @@ final class ViewController: UIViewController {
             chatTableView.bottomAnchor.constraint(equalTo: queryTextField.topAnchor, constant: -10)
         ])
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        indicatorView.center = view.center
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -56,9 +69,15 @@ extension ViewController: UITableViewDataSource {
         
         var content = cell.defaultContentConfiguration()
         content.text = model[indexPath.row]
-        content.image = UIImage(systemName: "questionmark")
         
-        content.imageProperties.tintColor = .systemBlue
+        if indexPath.row % 2 == 0 {
+            content.image = UIImage(systemName: "questionmark")
+            content.imageProperties.tintColor = .systemPink
+        } else {
+            content.image = UIImage(systemName: "message")
+            content.imageProperties.tintColor = .systemBlue
+        }
+        
         cell.contentConfiguration = content
         return cell
     }
@@ -71,18 +90,24 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let text = textField.text, !text.isEmpty {
+            indicatorView.startAnimating()
+            model.append(text)
             APIManager.shared.getResponse(input: text) { [weak self] result in
                 switch result {
                 case .success(let output):
                     self?.model.append(output)
                     DispatchQueue.main.async {
                         self?.chatTableView.reloadData()
+                        self?.indicatorView.stopAnimating()
                     }
                 case .failure(let error):
+                    self?.model.removeLast()
+                    self?.indicatorView.stopAnimating()
                     print(error)
                 }
             }
         }
+        queryTextField.text = nil
         return true
     }
 }
