@@ -93,22 +93,27 @@ extension ViewController: UITextFieldDelegate {
             indicatorView.startAnimating()
             model.append(text)
             APIManager.shared.getResponse(input: text) { [weak self] result in
+                guard let self = self else { return }
                 switch result {
                 case .success(let output):
-                    self?.model.append(output)
+                    self.model.append(self.replaceNewLineWithNone(input: output))
                     DispatchQueue.main.async {
-                        self?.chatTableView.reloadData()
-                        self?.indicatorView.stopAnimating()
+                        self.chatTableView.reloadData()
+                        self.indicatorView.stopAnimating()
                     }
                 case .failure(let error):
-                    self?.model.removeLast()
-                    self?.indicatorView.stopAnimating()
+                    self.model.removeLast()
+                    self.indicatorView.stopAnimating()
                     print(error)
                 }
             }
         }
         queryTextField.text = nil
         return true
+    }
+    
+    func replaceNewLineWithNone(input: String) -> String {
+        input.replacingOccurrences(of: "\n", with: "")
     }
 }
 

@@ -107,11 +107,11 @@
 				6B469E6D29A70E3600FDDE4D /* AppDelegate.swift */,
 				6B469E6F29A70E3600FDDE4D /* SceneDelegate.swift */,
 				6B469E7129A70E3600FDDE4D /* ViewController.swift */,
+				6B469EA029A70FFF00FDDE4D /* APIManager.swift */,
 				6B469E7329A70E3600FDDE4D /* Main.storyboard */,
 				6B469E7629A70E3F00FDDE4D /* Assets.xcassets */,
 				6B469E7829A70E3F00FDDE4D /* LaunchScreen.storyboard */,
 				6B469E7B29A70E3F00FDDE4D /* Info.plist */,
-				6B469EA029A70FFF00FDDE4D /* APIManager.swift */,
 				6B1C2AD429A71EA9000F84A9 /* APIKey.xcconfig */,
 			);
 			path = ChatBot;
