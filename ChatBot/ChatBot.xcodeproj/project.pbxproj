@@ -17,6 +17,7 @@
 		6B469E8F29A70E3F00FDDE4D /* ChatBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B469E8E29A70E3F00FDDE4D /* ChatBotUITests.swift */; };
 		6B469E9129A70E3F00FDDE4D /* ChatBotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B469E9029A70E3F00FDDE4D /* ChatBotUITestsLaunchTests.swift */; };
 		6B469E9F29A70F5600FDDE4D /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6B469E9E29A70F5600FDDE4D /* OpenAISwift */; };
+		6B469EA129A70FFF00FDDE4D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B469EA029A70FFF00FDDE4D /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		6B469E8A29A70E3F00FDDE4D /* ChatBotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatBotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B469E8E29A70E3F00FDDE4D /* ChatBotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotUITests.swift; sourceTree = "<group>"; };
 		6B469E9029A70E3F00FDDE4D /* ChatBotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B469EA029A70FFF00FDDE4D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				6B469E7629A70E3F00FDDE4D /* Assets.xcassets */,
 				6B469E7829A70E3F00FDDE4D /* LaunchScreen.storyboard */,
 				6B469E7B29A70E3F00FDDE4D /* Info.plist */,
+				6B469EA029A70FFF00FDDE4D /* APIManager.swift */,
 			);
 			path = ChatBot;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B469EA129A70FFF00FDDE4D /* APIManager.swift in Sources */,
 				6B469E7229A70E3600FDDE4D /* ViewController.swift in Sources */,
 				6B469E6E29A70E3600FDDE4D /* AppDelegate.swift in Sources */,
 				6B469E7029A70E3600FDDE4D /* SceneDelegate.swift in Sources */,
