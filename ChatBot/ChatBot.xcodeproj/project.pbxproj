@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B1C2AD429A71EA9000F84A9 /* APIKey.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKey.xcconfig; sourceTree = "<group>"; };
 		6B469E6A29A70E3600FDDE4D /* ChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B469E6D29A70E3600FDDE4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B469E6F29A70E3600FDDE4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				6B469E7829A70E3F00FDDE4D /* LaunchScreen.storyboard */,
 				6B469E7B29A70E3F00FDDE4D /* Info.plist */,
 				6B469EA029A70FFF00FDDE4D /* APIManager.swift */,
+				6B1C2AD429A71EA9000F84A9 /* APIKey.xcconfig */,
 			);
 			path = ChatBot;
 			sourceTree = "<group>";
@@ -330,6 +332,7 @@
 /* Begin XCBuildConfiguration section */
 		6B469E9229A70E3F00FDDE4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B1C2AD429A71EA9000F84A9 /* APIKey.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
